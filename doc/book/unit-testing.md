@@ -545,7 +545,7 @@ with the following contents:
 namespace AlbumTest\Model;
 
 use Album\Model\Album;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase as TestCase;
 
 class AlbumTest extends TestCase
 {
@@ -677,7 +677,7 @@ namespace AlbumTest\Model;
 
 use Album\Model\AlbumTable;
 use Album\Model\Album;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase as TestCase;
 use RuntimeException;
 use Zend\Db\ResultSet\ResultSetInterface;
 use Zend\Db\TableGateway\TableGatewayInterface;
@@ -766,7 +766,7 @@ public function testExceptionIsThrownWhenGettingNonExistentAlbum()
         ->select(['id' => 123])
         ->willReturn($resultSet->reveal());
 
-    $this->setExpectedException(
+    $this->expectException(
         RuntimeException::class,
         'Could not find row with identifier 123'
     );
